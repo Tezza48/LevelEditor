@@ -47,7 +47,8 @@
             this.txtbxLocDescription = new System.Windows.Forms.TextBox();
             this.btnSaveLoc = new System.Windows.Forms.Button();
             this.btnNewLoc = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnRemoveLoc = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,10 +59,11 @@
             this.locationDisplayBox.Name = "locationDisplayBox";
             this.locationDisplayBox.Size = new System.Drawing.Size(156, 277);
             this.locationDisplayBox.TabIndex = 5;
+            this.locationDisplayBox.SelectedIndexChanged += new System.EventHandler(this.locationDisplayBox_SelectedIndexChanged);
             // 
             // refreshLocationDisplay
             // 
-            this.refreshLocationDisplay.Location = new System.Drawing.Point(12, 339);
+            this.refreshLocationDisplay.Location = new System.Drawing.Point(53, 272);
             this.refreshLocationDisplay.Name = "refreshLocationDisplay";
             this.refreshLocationDisplay.Size = new System.Drawing.Size(75, 23);
             this.refreshLocationDisplay.TabIndex = 6;
@@ -89,8 +91,9 @@
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.loadToolStripMenuItem.Text = "Load";
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
@@ -180,17 +183,18 @@
             // txtbxLocDescription
             // 
             this.txtbxLocDescription.Location = new System.Drawing.Point(177, 84);
+            this.txtbxLocDescription.Multiline = true;
             this.txtbxLocDescription.Name = "txtbxLocDescription";
-            this.txtbxLocDescription.Size = new System.Drawing.Size(287, 20);
+            this.txtbxLocDescription.Size = new System.Drawing.Size(287, 84);
             this.txtbxLocDescription.TabIndex = 12;
             // 
             // btnSaveLoc
             // 
-            this.btnSaveLoc.Location = new System.Drawing.Point(177, 111);
+            this.btnSaveLoc.Location = new System.Drawing.Point(177, 310);
             this.btnSaveLoc.Name = "btnSaveLoc";
             this.btnSaveLoc.Size = new System.Drawing.Size(75, 23);
             this.btnSaveLoc.TabIndex = 13;
-            this.btnSaveLoc.Text = "button1";
+            this.btnSaveLoc.Text = "Set Location";
             this.btnSaveLoc.UseVisualStyleBackColor = true;
             this.btnSaveLoc.Click += new System.EventHandler(this.btnSaveLoc_Click);
             // 
@@ -200,25 +204,36 @@
             this.btnNewLoc.Name = "btnNewLoc";
             this.btnNewLoc.Size = new System.Drawing.Size(75, 23);
             this.btnNewLoc.TabIndex = 14;
-            this.btnNewLoc.Text = "button2";
+            this.btnNewLoc.Text = "Add";
             this.btnNewLoc.UseVisualStyleBackColor = true;
             this.btnNewLoc.Click += new System.EventHandler(this.btnNewLoc_Click);
             // 
-            // button3
+            // btnRemoveLoc
             // 
-            this.button3.Location = new System.Drawing.Point(93, 310);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnRemoveLoc.Location = new System.Drawing.Point(93, 310);
+            this.btnRemoveLoc.Name = "btnRemoveLoc";
+            this.btnRemoveLoc.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveLoc.TabIndex = 15;
+            this.btnRemoveLoc.Text = "Remove";
+            this.btnRemoveLoc.UseVisualStyleBackColor = true;
+            this.btnRemoveLoc.Click += new System.EventHandler(this.btnRemoveLoc_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(177, 175);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Exits";
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(491, 370);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnRemoveLoc);
             this.Controls.Add(this.btnNewLoc);
             this.Controls.Add(this.btnSaveLoc);
             this.Controls.Add(this.txtbxLocDescription);
@@ -259,7 +274,8 @@
         private System.Windows.Forms.TextBox txtbxLocDescription;
         private System.Windows.Forms.Button btnSaveLoc;
         private System.Windows.Forms.Button btnNewLoc;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnRemoveLoc;
+        private System.Windows.Forms.Label label2;
     }
 }
 

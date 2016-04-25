@@ -32,6 +32,20 @@ namespace LevelEditor
             }
         }
 
+        [JsonIgnore]
+        public string Description
+        {
+            get
+            {
+                return description;
+            }
+
+            set
+            {
+                description = value;
+            }
+        }
+
         public Location(string _title = "New Location", string _description = "")
         {
             title = _title;

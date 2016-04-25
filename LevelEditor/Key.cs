@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace LevelEditor
 {
-    class Key : Item
+    public class Key : Item
     {
         [JsonRequired]
         private bool destroyedOnUse;

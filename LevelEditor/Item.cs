@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace LevelEditor
 {
-    class Item
+    public class Item
     {
         [JsonRequired]
         protected string itemName;

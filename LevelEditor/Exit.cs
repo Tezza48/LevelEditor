@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LevelEditor
 {
-    class Exit
+    public class Exit
     {
         public enum Directions
         {

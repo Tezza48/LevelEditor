@@ -17,7 +17,7 @@ namespace LevelEditor
 
         public static JsonSerializer Json = JsonSerializer.CreateDefault();
 
-        [STAThread]
+        //[STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();

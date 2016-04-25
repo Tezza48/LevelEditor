@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LevelEditor
 {
-    class Location
+    public class Location
     {
         [JsonRequired]
         private string title;
@@ -18,7 +18,21 @@ namespace LevelEditor
         [JsonRequired]
         private List<Item> inventory;
 
-        public Location(string _title, string _description)
+        [JsonIgnore]
+        public string Title
+        {
+            get
+            {
+                return title;
+            }
+
+            set
+            {
+                title = value;
+            }
+        }
+
+        public Location(string _title = "New Location", string _description = "")
         {
             title = _title;
             description = _description;

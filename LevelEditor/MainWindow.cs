@@ -58,7 +58,6 @@ namespace LevelEditor
 
         private void btnNewLoc_Click(object sender, EventArgs e)
         {
-            locations = new List<LevelEditor.Location>();
             locations.Add(new LevelEditor.Location());
         }
     }

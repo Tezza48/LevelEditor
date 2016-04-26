@@ -11,17 +11,33 @@ namespace LevelEditor
     {
         public enum Directions
         {
-            Undefined, North, South, East, West, Up, Down, NorthEast, NorthWest, SouthEast, SouthWest, In, Out
+            UNDEFINED, North, South, East, West, Up, Down, NorthEast, NorthWest, SouthEast, SouthWest, In, Out
         };
 
         [JsonRequired]
-        private string leadsTo;
+        private int leadsTo;
         [JsonRequired]
         private Directions direction;
         [JsonRequired]
         private Key key;
 
-        public Exit(Directions _direction, string newLeadsTo, Key _key = null)
+        public Directions Direction
+        {
+            get
+            {
+                return direction;
+            }
+        }
+
+        public int LeadsTo
+        {
+            set
+            {
+                leadsTo = value;
+            }
+        }
+
+        public Exit(Directions _direction, int newLeadsTo, Key _key = null)
         {
             direction = _direction;
             leadsTo = newLeadsTo;

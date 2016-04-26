@@ -45,6 +45,19 @@ namespace LevelEditor
                 description = value;
             }
         }
+        [JsonIgnore]
+        public List<Exit> Exits
+        {
+            get
+            {
+                return exits;
+            }
+
+            set
+            {
+                exits = value;
+            }
+        }
 
         public Location(string _title = "New Location", string _description = "")
         {
@@ -54,14 +67,32 @@ namespace LevelEditor
             inventory = new List<Item>();
         }
 
-        public void addExit(Exit exit)
+        public void addExit(Exit.Directions direction, int targetLoc)
         {
-            exits.Add(exit);
+            bool exitAlreadyExists = false;
+            foreach (Exit currentExit in exits)
+            {
+                if (currentExit.Direction == direction)
+                {
+                    currentExit.LeadsTo = targetLoc;
+                    exitAlreadyExists = true;
+                }
+            }
+            if (!exitAlreadyExists)
+            {
+                exits.Add(new Exit(direction, targetLoc));
+            }
         }
 
         public void addItem(Item newItem)
         {
             inventory.Add(newItem);
         }
+
+        public override string ToString()
+        {
+            return title;
+        }
+
     }
 }

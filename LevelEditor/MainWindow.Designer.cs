@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.locationDisplayBox = new System.Windows.Forms.ListBox();
-            this.refreshLocationDisplay = new System.Windows.Forms.Button();
+            this.locDisplayBox = new System.Windows.Forms.ListBox();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,27 +48,22 @@
             this.btnNewLoc = new System.Windows.Forms.Button();
             this.btnRemoveLoc = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.combobxExits = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.combobxExitLeadsTo = new System.Windows.Forms.ComboBox();
+            this.btnSetExit = new System.Windows.Forms.Button();
+            this.btnClearExit = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // locationDisplayBox
+            // locDisplayBox
             // 
-            this.locationDisplayBox.FormattingEnabled = true;
-            this.locationDisplayBox.Location = new System.Drawing.Point(12, 27);
-            this.locationDisplayBox.Name = "locationDisplayBox";
-            this.locationDisplayBox.Size = new System.Drawing.Size(156, 277);
-            this.locationDisplayBox.TabIndex = 5;
-            this.locationDisplayBox.SelectedIndexChanged += new System.EventHandler(this.locationDisplayBox_SelectedIndexChanged);
-            // 
-            // refreshLocationDisplay
-            // 
-            this.refreshLocationDisplay.Location = new System.Drawing.Point(53, 272);
-            this.refreshLocationDisplay.Name = "refreshLocationDisplay";
-            this.refreshLocationDisplay.Size = new System.Drawing.Size(75, 23);
-            this.refreshLocationDisplay.TabIndex = 6;
-            this.refreshLocationDisplay.Text = "Refresh";
-            this.refreshLocationDisplay.UseVisualStyleBackColor = true;
-            this.refreshLocationDisplay.Click += new System.EventHandler(this.refreshLocationDisplay_Click);
+            this.locDisplayBox.FormattingEnabled = true;
+            this.locDisplayBox.Location = new System.Drawing.Point(12, 27);
+            this.locDisplayBox.Name = "locDisplayBox";
+            this.locDisplayBox.Size = new System.Drawing.Size(156, 277);
+            this.locDisplayBox.TabIndex = 5;
+            this.locDisplayBox.SelectedIndexChanged += new System.EventHandler(this.locationDisplayBox_SelectedIndexChanged);
             // 
             // fileToolStripMenuItem
             // 
@@ -91,7 +85,7 @@
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.loadToolStripMenuItem.Text = "Load";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
@@ -151,7 +145,7 @@
             this.debugToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(491, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(474, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -227,11 +221,61 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "Exits";
             // 
+            // combobxExits
+            // 
+            this.combobxExits.FormattingEnabled = true;
+            this.combobxExits.Location = new System.Drawing.Point(180, 192);
+            this.combobxExits.Name = "combobxExits";
+            this.combobxExits.Size = new System.Drawing.Size(89, 21);
+            this.combobxExits.TabIndex = 17;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(275, 195);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Leads To";
+            // 
+            // combobxExitLeadsTo
+            // 
+            this.combobxExitLeadsTo.FormattingEnabled = true;
+            this.combobxExitLeadsTo.Location = new System.Drawing.Point(333, 192);
+            this.combobxExitLeadsTo.Name = "combobxExitLeadsTo";
+            this.combobxExitLeadsTo.Size = new System.Drawing.Size(131, 21);
+            this.combobxExitLeadsTo.TabIndex = 19;
+            // 
+            // btnSetExit
+            // 
+            this.btnSetExit.Location = new System.Drawing.Point(389, 219);
+            this.btnSetExit.Name = "btnSetExit";
+            this.btnSetExit.Size = new System.Drawing.Size(75, 23);
+            this.btnSetExit.TabIndex = 20;
+            this.btnSetExit.Text = "Set";
+            this.btnSetExit.UseVisualStyleBackColor = true;
+            this.btnSetExit.Click += new System.EventHandler(this.btnSetExit_Click);
+            // 
+            // btnClearExit
+            // 
+            this.btnClearExit.Location = new System.Drawing.Point(180, 219);
+            this.btnClearExit.Name = "btnClearExit";
+            this.btnClearExit.Size = new System.Drawing.Size(75, 23);
+            this.btnClearExit.TabIndex = 21;
+            this.btnClearExit.Text = "Clear";
+            this.btnClearExit.UseVisualStyleBackColor = true;
+            this.btnClearExit.Click += new System.EventHandler(this.btnClearExit_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 370);
+            this.ClientSize = new System.Drawing.Size(474, 370);
+            this.Controls.Add(this.btnClearExit);
+            this.Controls.Add(this.btnSetExit);
+            this.Controls.Add(this.combobxExitLeadsTo);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.combobxExits);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnRemoveLoc);
             this.Controls.Add(this.btnNewLoc);
@@ -240,13 +284,12 @@
             this.Controls.Add(this.txtbxLocName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.locNameLabel);
-            this.Controls.Add(this.refreshLocationDisplay);
-            this.Controls.Add(this.locationDisplayBox);
+            this.Controls.Add(this.locDisplayBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
             this.Text = "Level Editor";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -255,8 +298,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.ListBox locationDisplayBox;
-        private System.Windows.Forms.Button refreshLocationDisplay;
+        private System.Windows.Forms.ListBox locDisplayBox;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
@@ -276,6 +318,11 @@
         private System.Windows.Forms.Button btnNewLoc;
         private System.Windows.Forms.Button btnRemoveLoc;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox combobxExits;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox combobxExitLeadsTo;
+        private System.Windows.Forms.Button btnSetExit;
+        private System.Windows.Forms.Button btnClearExit;
     }
 }
 

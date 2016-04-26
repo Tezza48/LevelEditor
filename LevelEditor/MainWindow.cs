@@ -15,20 +15,22 @@ namespace LevelEditor
     public partial class MainWindow : Form
     {
 
-        private List<LevelEditor.Location> locations;
+        private BindingList<LevelEditor.Location> locations;
         private string path = @"data.json";
 
         public MainWindow()
         {
             InitializeComponent();
-
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        #region Events
+        private void MainWindow_Load(object sender, EventArgs e)
         {
-            if (locations == null) locations = new List<LevelEditor.Location>();
+            if (locations == null) locations = new BindingList<LevelEditor.Location>();
             locations.Add(new LevelEditor.Location());
-            RefreshLocationDisplay();
+            combobxExits.DataSource = Enum.GetValues(typeof(Exit.Directions));
+            locDisplayBox.DataSource = locations;
+            combobxExitLeadsTo.DataSource = locations;
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -41,17 +43,11 @@ namespace LevelEditor
             LoadLocations();
         }
 
-        private void refreshLocationDisplay_Click(object sender, EventArgs e)
-        {
-            RefreshLocationDisplay();
-        }
-
-
         private void btnSaveLoc_Click(object sender, EventArgs e)
         {
-            if (locationDisplayBox.SelectedIndex > -1)
+            if (locDisplayBox.SelectedIndex > -1)
             {
-                SetLocationAt(locationDisplayBox.SelectedIndex);
+                SetLocationAt(locDisplayBox.SelectedIndex);
             }
             else
             {
@@ -64,55 +60,55 @@ namespace LevelEditor
             AddLocation();
         }
 
-        private void AddLocation()
+        private void locationDisplayBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            locations.Add(new Location(txtbxLocName.Text != "" ? txtbxLocName.Text : "New Location", txtbxLocDescription.Text));
-            RefreshLocationDisplay();
-            ClearEditArea();
+            UpdateEditArea(locDisplayBox.SelectedIndex);
         }
 
         private void btnRemoveLoc_Click(object sender, EventArgs e)
         {
-            if (locationDisplayBox.SelectedIndex > -1)
+            if (locDisplayBox.SelectedIndex >= 0 && locDisplayBox.SelectedIndex < locDisplayBox.Items.Count)
             {
-                RemoveLocationAt(locationDisplayBox.SelectedIndex);
+                RemoveLocationAt(locDisplayBox.SelectedIndex);
             }
             else
             {
                 MessageBox.Show("You must select a Location to remove first", "Warning");
             }
         }
+        #endregion
 
-        private void RefreshLocationDisplay()
+        #region Methods
+
+        private void AddLocation()
         {
-            locationDisplayBox.Items.Clear();
-            foreach (Location loc in locations)
-            {
-                locationDisplayBox.Items.Add(loc.Title);
-            }
+            locations.Add(new Location(txtbxLocName.Text != "" ? txtbxLocName.Text : "New Location", txtbxLocDescription.Text));
+            ClearEditArea();
         }
 
         private void RemoveLocationAt(int i)
         {
-            locations.RemoveAt(i);
+            locations[i] = new LevelEditor.Location("REMOVED", "THIS ITEM HAS BEEN REMOVED");
         }
 
         private void SetLocationAt(int i)
         {
             locations[i].Title = txtbxLocName.Text;
             locations[i].Description = txtbxLocDescription.Text;
-            RefreshLocationDisplay();
-        }
-
-        private void locationDisplayBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            UpdateEditArea(locationDisplayBox.SelectedIndex);
         }
 
         private void UpdateEditArea(int i)
         {
-            txtbxLocName.Text = locations[i].Title;
-            txtbxLocDescription.Text = locations[i].Description;
+            if (locations.Count > 0 && i >= 0)
+            {
+                txtbxLocName.Text = ((Location)locDisplayBox.SelectedItem).Title;
+                txtbxLocDescription.Text = ((Location)locDisplayBox.SelectedItem).Description;
+            }
+            else
+            {
+                txtbxLocName.Text = "";
+                txtbxLocDescription.Text = "";
+            }
         }
 
         private void ClearEditArea()
@@ -121,7 +117,7 @@ namespace LevelEditor
             txtbxLocDescription.Text = "";
         }
 
-        public void SaveLocations ()
+        private void SaveLocations ()
         {
             string locStr = JsonConvert.SerializeObject(locations);
             File.WriteAllText(path, locStr);
@@ -130,9 +126,24 @@ namespace LevelEditor
         private void LoadLocations()
         {
             string data = File.ReadAllText(path);
-            locations = JsonConvert.DeserializeObject<List<Location>>(data);
-            if (locations == null) locations = new List<Location>();
-            RefreshLocationDisplay();
+            locations = JsonConvert.DeserializeObject<BindingList<Location>>(data);
+            if (locations == null) locations = new BindingList<Location>();
+            locDisplayBox.DataSource = locations;
+            combobxExitLeadsTo.DataSource = locations;
+        }
+        #endregion
+
+        private void btnClearExit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSetExit_Click(object sender, EventArgs e)
+        {
+            int i = locDisplayBox.SelectedIndex;
+            Location selectedLocation = locations[i];
+            Exit.Directions selectedDirection = (Exit.Directions)combobxExits.SelectedItem;
+            selectedLocation.addExit(selectedDirection, i);
         }
     }
 }

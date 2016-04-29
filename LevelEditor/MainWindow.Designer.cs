@@ -228,6 +228,7 @@
             this.combobxExits.Name = "combobxExits";
             this.combobxExits.Size = new System.Drawing.Size(89, 21);
             this.combobxExits.TabIndex = 17;
+            this.combobxExits.SelectedIndexChanged += new System.EventHandler(this.combobxExits_SelectedIndexChanged);
             // 
             // label3
             // 

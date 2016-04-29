@@ -30,7 +30,8 @@ namespace LevelEditor
             locations.Add(new LevelEditor.Location());
             combobxExits.DataSource = Enum.GetValues(typeof(Exit.Directions));
             locDisplayBox.DataSource = locations;
-            combobxExitLeadsTo.DataSource = locations;
+            //combobxExitLeadsTo.DataSource = locations.ToString();
+            RefreshExitLocations();
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -76,9 +77,28 @@ namespace LevelEditor
                 MessageBox.Show("You must select a Location to remove first", "Warning");
             }
         }
+
+        private void btnClearExit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSetExit_Click(object sender, EventArgs e)
+        {
+            int i = combobxExitLeadsTo.SelectedIndex;
+            Location selectedLocation = locations[i];
+            Exit.Directions selectedDirection = (Exit.Directions)combobxExits.SelectedItem;
+            selectedLocation.addExit(selectedDirection, i);
+        }
         #endregion
 
         #region Methods
+
+        private void RefreshExitLocations()
+        {
+            combobxExitLeadsTo.Items.Clear();
+            combobxExitLeadsTo.Items.AddRange(locations.ToArray());
+        }
 
         private void AddLocation()
         {
@@ -95,6 +115,7 @@ namespace LevelEditor
         {
             locations[i].Title = txtbxLocName.Text;
             locations[i].Description = txtbxLocDescription.Text;
+            locDisplayBox.Refresh();
         }
 
         private void UpdateEditArea(int i)
@@ -133,17 +154,9 @@ namespace LevelEditor
         }
         #endregion
 
-        private void btnClearExit_Click(object sender, EventArgs e)
+        private void combobxExits_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnSetExit_Click(object sender, EventArgs e)
-        {
-            int i = locDisplayBox.SelectedIndex;
-            Location selectedLocation = locations[i];
-            Exit.Directions selectedDirection = (Exit.Directions)combobxExits.SelectedItem;
-            selectedLocation.addExit(selectedDirection, i);
+            RefreshExitLocations();
         }
     }
 }

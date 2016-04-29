@@ -15,8 +15,6 @@ namespace LevelEditor
         /// </summary>
         /// 
 
-        public static JsonSerializer Json = JsonSerializer.CreateDefault();
-
         //[STAThread]
         static void Main()
         {

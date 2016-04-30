@@ -17,19 +17,63 @@ namespace LevelEditor
 
         private SaveData gameData;
 
-        private List<Location> locations;
-
         public MainWindow()
         {
             InitializeComponent();
-            SaveBasicLevelStuff();
-            //LoadGameData();
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            gameData.startText = "Start Text";
+            gameData.locations = new BindingList<Location>();
+            gameData.locations.Add(new Location());
+
+            txtbxStartText.Text = gameData.startText;
+        }
+
+        private void btnEditLocations_Click(object sender, EventArgs e)
+        {
+            LocationEditor locEditWindow = new LocationEditor(ref gameData.locations);
+            locEditWindow.ShowDialog();
+        }
+
+        private void txtbxStartText_TextChanged(object sender, EventArgs e)
+        {
+            gameData.startText = txtbxStartText.Text;
+        }
+
+        #region Menu Strip
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveGameData();
+        }
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadGameData();
+        }
+        #endregion
+
+        private void SaveGameData()
+        {
+            string data = JsonConvert.SerializeObject(gameData);
+            File.WriteAllText("data.json", data);
+        }
+
+        private void LoadGameData()
+        {
+            string data = File.ReadAllText("data.json");
+
+            gameData = JsonConvert.DeserializeObject<SaveData>(data);
+
+            txtbxStartText.Text = gameData.startText;
         }
 
         private void SaveBasicLevelStuff()
         {
+            gameData.startText = "This is the game's start text.";
 
-            locations = new List<Location>();
+            BindingList<Location> locations = new BindingList<Location>();
 
             #region Make Items
             Item l0_screwdriver = new Item("Screwdriver", "it's a phillips head screwdriver");
@@ -66,15 +110,27 @@ namespace LevelEditor
 
             gameData.locations = locations;
 
-            string data = JsonConvert.SerializeObject(gameData);
+            string data = JsonConvert.SerializeObject(gameData, Formatting.Indented, new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Include
+            });
             File.WriteAllText("data.json", data);
         }
 
-        private void LoadGameData()
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            string data = File.ReadAllText("data.json");
-            gameData = (SaveData)JsonConvert.DeserializeObject(data);
-            locations = gameData.locations;
+            DialogResult quitWarningMessage = MessageBox.Show("Do you want to Save first?", "Warning", MessageBoxButtons.YesNoCancel);
+            switch (quitWarningMessage)
+            {
+                case DialogResult.Yes:
+                    SaveGameData();
+                    break;
+                case DialogResult.Cancel:
+                    e.Cancel = true;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

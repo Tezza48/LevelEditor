@@ -63,5 +63,10 @@ namespace LevelEditor
         {
             inventory.Add(newItem);
         }
+
+        public override string ToString()
+        {
+            return title;
+        }
     }
 }

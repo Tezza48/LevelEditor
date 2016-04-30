@@ -18,14 +18,27 @@ namespace LevelEditor
         private int leadsTo;
         [JsonRequired]
         private Directions direction;
-        [JsonRequired]
+
         private Key key;
+
+        public Key Key
+        {
+            get
+            {
+                return key;
+            }
+
+            set
+            {
+                key = value;
+            }
+        }
 
         public Exit(Directions _direction, int _leadsTo, Key _key = null)
         {
             direction = _direction;
             leadsTo = _leadsTo;
-            key = _key == null ? new Key() : _key;
+            key = _key;
         }
     }
 }

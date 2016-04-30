@@ -12,18 +12,16 @@ namespace LevelEditor
         [JsonRequired]
         private bool destroyedOnUse;
 
-        public Key()
-        {
-            itemName = "";
-            itemDescription = "";
-            destroyedOnUse = true;
-        }
-
-        public Key(string _name, string _description, bool _destroyedOnUse)
+        public Key(string _name = "New Key", string _description = "", bool _destroyedOnUse = true)
         {
             itemName = _name;
             itemDescription = _description;
             destroyedOnUse = _destroyedOnUse;
+        }
+
+        public override string ToString()
+        {
+            return itemName;
         }
     }
 }

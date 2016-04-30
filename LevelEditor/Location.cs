@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace LevelEditor
         [JsonRequired]
         private List<Exit> exits;
         [JsonRequired]
-        private List<Item> inventory;
+        private BindingList<Item> inventory;
 
         [JsonIgnore]
         public string Title
@@ -45,13 +46,26 @@ namespace LevelEditor
                 description = value;
             }
         }
+        [JsonIgnore]
+        public BindingList<Item> Inventory
+        {
+            get
+            {
+                return inventory;
+            }
+
+            set
+            {
+                inventory = value;
+            }
+        }
 
         public Location(string _title = "New Location", string _description = "")
         {
             title = _title;
             description = _description;
             exits = new List<Exit>();
-            inventory = new List<Item>();
+            inventory = new BindingList<Item>();
         }
 
         public void addExit(Exit exit)

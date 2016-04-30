@@ -18,9 +18,9 @@ namespace LevelEditor
         private int leadsTo;
         [JsonRequired]
         private Directions direction;
-
         private Key key;
 
+        [JsonProperty]
         public Key Key
         {
             get

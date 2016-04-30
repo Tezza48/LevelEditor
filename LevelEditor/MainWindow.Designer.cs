@@ -28,12 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             this.locDisplayBox = new System.Windows.Forms.ListBox();
+=======
+            this.btnEditLocations = new System.Windows.Forms.Button();
+            this.btnEditExits = new System.Windows.Forms.Button();
+            this.txtbxStartText = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+>>>>>>> SeparatingFuncions
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+<<<<<<< HEAD
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.locationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,37 +71,77 @@
             this.locDisplayBox.Size = new System.Drawing.Size(156, 277);
             this.locDisplayBox.TabIndex = 5;
             this.locDisplayBox.SelectedIndexChanged += new System.EventHandler(this.locationDisplayBox_SelectedIndexChanged);
+=======
+            this.btnEditPlayer = new System.Windows.Forms.Button();
+            this.menuStrip1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // btnEditLocations
+            // 
+            this.btnEditLocations.Location = new System.Drawing.Point(12, 168);
+            this.btnEditLocations.Name = "btnEditLocations";
+            this.btnEditLocations.Size = new System.Drawing.Size(260, 23);
+            this.btnEditLocations.TabIndex = 0;
+            this.btnEditLocations.Text = "Edit Locations";
+            this.btnEditLocations.UseVisualStyleBackColor = true;
+            this.btnEditLocations.Click += new System.EventHandler(this.btnEditLocations_Click);
+            // 
+            // btnEditExits
+            // 
+            this.btnEditExits.Location = new System.Drawing.Point(12, 197);
+            this.btnEditExits.Name = "btnEditExits";
+            this.btnEditExits.Size = new System.Drawing.Size(260, 23);
+            this.btnEditExits.TabIndex = 2;
+            this.btnEditExits.Text = "Edit Exits";
+            this.btnEditExits.UseVisualStyleBackColor = true;
+            // 
+            // txtbxStartText
+            // 
+            this.txtbxStartText.Location = new System.Drawing.Point(12, 27);
+            this.txtbxStartText.Multiline = true;
+            this.txtbxStartText.Name = "txtbxStartText";
+            this.txtbxStartText.Size = new System.Drawing.Size(260, 135);
+            this.txtbxStartText.TabIndex = 3;
+            this.txtbxStartText.TextChanged += new System.EventHandler(this.txtbxStartText_TextChanged);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(284, 24);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
+>>>>>>> SeparatingFuncions
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
-            this.loadToolStripMenuItem,
             this.saveToolStripMenuItem,
+            this.loadToolStripMenuItem,
             this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
-            // newToolStripMenuItem
+            // saveToolStripMenuItem
             // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.newToolStripMenuItem.Text = "New";
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.saveToolStripMenuItem.Text = "&Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             this.loadToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+<<<<<<< HEAD
             this.loadToolStripMenuItem.Text = "Load";
+=======
+            this.loadToolStripMenuItem.Text = "&Load";
+>>>>>>> SeparatingFuncions
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.saveToolStripMenuItem.Text = "Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
@@ -102,28 +149,9 @@
             this.quitToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             // 
-            // editToolStripMenuItem
+            // btnEditPlayer
             // 
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.editToolStripMenuItem.Text = "Edit";
-            // 
-            // windowToolStripMenuItem
-            // 
-            this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.locationsToolStripMenuItem});
-            this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
-            this.windowToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.windowToolStripMenuItem.Text = "Window";
-            // 
-            // locationsToolStripMenuItem
-            // 
-            this.locationsToolStripMenuItem.Name = "locationsToolStripMenuItem";
-            this.locationsToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
-            this.locationsToolStripMenuItem.Text = "Locations";
-            // 
-            // debugToolStripMenuItem
-            // 
+<<<<<<< HEAD
             this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.breakLocationsToolStripMenuItem});
             this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
@@ -220,6 +248,15 @@
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 16;
             this.label2.Text = "Exits";
+=======
+            this.btnEditPlayer.Location = new System.Drawing.Point(13, 226);
+            this.btnEditPlayer.Name = "btnEditPlayer";
+            this.btnEditPlayer.Size = new System.Drawing.Size(259, 23);
+            this.btnEditPlayer.TabIndex = 5;
+            this.btnEditPlayer.Text = "Edit Player";
+            this.btnEditPlayer.UseVisualStyleBackColor = true;
+            this.btnEditPlayer.Click += new System.EventHandler(this.btnEditPlayer_Click);
+>>>>>>> SeparatingFuncions
             // 
             // combobxExits
             // 
@@ -271,6 +308,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(474, 370);
             this.Controls.Add(this.btnClearExit);
             this.Controls.Add(this.btnSetExit);
@@ -286,10 +324,21 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.locNameLabel);
             this.Controls.Add(this.locDisplayBox);
+=======
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.btnEditPlayer);
+            this.Controls.Add(this.txtbxStartText);
+            this.Controls.Add(this.btnEditExits);
+            this.Controls.Add(this.btnEditLocations);
+>>>>>>> SeparatingFuncions
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
             this.Text = "Level Editor";
+<<<<<<< HEAD
+=======
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
+>>>>>>> SeparatingFuncions
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -299,12 +348,20 @@
         }
 
         #endregion
+<<<<<<< HEAD
         private System.Windows.Forms.ListBox locDisplayBox;
+=======
+
+        private System.Windows.Forms.Button btnEditLocations;
+        private System.Windows.Forms.Button btnEditExits;
+        private System.Windows.Forms.TextBox txtbxStartText;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+>>>>>>> SeparatingFuncions
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
+<<<<<<< HEAD
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem locationsToolStripMenuItem;
@@ -324,6 +381,8 @@
         private System.Windows.Forms.ComboBox combobxExitLeadsTo;
         private System.Windows.Forms.Button btnSetExit;
         private System.Windows.Forms.Button btnClearExit;
+=======
+        private System.Windows.Forms.Button btnEditPlayer;
+>>>>>>> SeparatingFuncions
     }
 }
-

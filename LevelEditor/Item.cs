@@ -15,16 +15,42 @@ namespace LevelEditor
         [JsonRequired]
         protected string itemDescription;
 
-        public Item ()
+        [JsonIgnore]
+        public string ItemName
         {
-            itemName = "";
-            itemDescription = "";
+            get
+            {
+                return itemName;
+            }
+
+            set
+            {
+                itemName = value;
+            }
+        }
+        [JsonIgnore]
+        public string ItemDescription
+        {
+            get
+            {
+                return itemDescription;
+            }
+
+            set
+            {
+                itemDescription = value;
+            }
         }
 
-        public Item(string _name, string _description)
+        public Item(string _name = "New Item", string _description = "")
         {
             itemName = _name;
             itemDescription = _description;
+        }
+
+        public override string ToString()
+        {
+            return itemName;
         }
     }
 }

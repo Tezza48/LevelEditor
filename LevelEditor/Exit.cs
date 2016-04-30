@@ -18,9 +18,9 @@ namespace LevelEditor
         private int leadsTo;
         [JsonRequired]
         private Directions direction;
-        [JsonRequired]
         private Key key;
 
+<<<<<<< HEAD
         public Directions Direction
         {
             get
@@ -38,10 +38,27 @@ namespace LevelEditor
         }
 
         public Exit(Directions _direction, int newLeadsTo, Key _key = null)
+=======
+        [JsonProperty]
+        public Key Key
+        {
+            get
+            {
+                return key;
+            }
+
+            set
+            {
+                key = value;
+            }
+        }
+
+        public Exit(Directions _direction, int _leadsTo, Key _key = null)
+>>>>>>> SeparatingFuncions
         {
             direction = _direction;
-            leadsTo = newLeadsTo;
-            key = _key == null ? new Key() : _key;
+            leadsTo = _leadsTo;
+            key = _key;
         }
     }
 }

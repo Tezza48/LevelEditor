@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace LevelEditor
 {
-    public partial class LocationAddForm : Form
+    public partial class ItemEditor : Form
     {
-        public LocationAddForm()
+        public ItemEditor()
         {
             InitializeComponent();
-        }
-
-        private void LocationAddForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

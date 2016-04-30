@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnEditLocations = new System.Windows.Forms.Button();
-            this.btnEditItems = new System.Windows.Forms.Button();
             this.btnEditExits = new System.Windows.Forms.Button();
             this.txtbxStartText = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -37,6 +36,7 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnEditPlayer = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,18 +50,9 @@
             this.btnEditLocations.UseVisualStyleBackColor = true;
             this.btnEditLocations.Click += new System.EventHandler(this.btnEditLocations_Click);
             // 
-            // btnEditItems
-            // 
-            this.btnEditItems.Location = new System.Drawing.Point(12, 197);
-            this.btnEditItems.Name = "btnEditItems";
-            this.btnEditItems.Size = new System.Drawing.Size(260, 23);
-            this.btnEditItems.TabIndex = 1;
-            this.btnEditItems.Text = "Edit Items";
-            this.btnEditItems.UseVisualStyleBackColor = true;
-            // 
             // btnEditExits
             // 
-            this.btnEditExits.Location = new System.Drawing.Point(12, 226);
+            this.btnEditExits.Location = new System.Drawing.Point(12, 197);
             this.btnEditExits.Name = "btnEditExits";
             this.btnEditExits.Size = new System.Drawing.Size(260, 23);
             this.btnEditExits.TabIndex = 2;
@@ -117,14 +108,24 @@
             this.quitToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             // 
+            // btnEditPlayer
+            // 
+            this.btnEditPlayer.Location = new System.Drawing.Point(13, 226);
+            this.btnEditPlayer.Name = "btnEditPlayer";
+            this.btnEditPlayer.Size = new System.Drawing.Size(259, 23);
+            this.btnEditPlayer.TabIndex = 5;
+            this.btnEditPlayer.Text = "Edit Player";
+            this.btnEditPlayer.UseVisualStyleBackColor = true;
+            this.btnEditPlayer.Click += new System.EventHandler(this.btnEditPlayer_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.btnEditPlayer);
             this.Controls.Add(this.txtbxStartText);
             this.Controls.Add(this.btnEditExits);
-            this.Controls.Add(this.btnEditItems);
             this.Controls.Add(this.btnEditLocations);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -142,7 +143,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnEditLocations;
-        private System.Windows.Forms.Button btnEditItems;
         private System.Windows.Forms.Button btnEditExits;
         private System.Windows.Forms.TextBox txtbxStartText;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -150,5 +150,6 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
+        private System.Windows.Forms.Button btnEditPlayer;
     }
 }

@@ -32,21 +32,21 @@
             this.addLoc = new System.Windows.Forms.Button();
             this.removeLoc = new System.Windows.Forms.Button();
             this.groupbxLocEdit = new System.Windows.Forms.GroupBox();
-            this.btnSetItem = new System.Windows.Forms.Button();
-            this.txtbxItemDescription = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtbxItemName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.combxItems = new System.Windows.Forms.ComboBox();
-            this.addKey = new System.Windows.Forms.Button();
-            this.removeItem = new System.Windows.Forms.Button();
-            this.addItem = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnSetLoc = new System.Windows.Forms.Button();
             this.txtbxLocDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtbxLocTitle = new System.Windows.Forms.TextBox();
+            this.btnSetItem = new System.Windows.Forms.Button();
+            this.txtbxItemDescription = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtbxItemName = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.addKey = new System.Windows.Forms.Button();
+            this.removeItem = new System.Windows.Forms.Button();
+            this.addItem = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.combxItems = new System.Windows.Forms.ComboBox();
             this.groupbxLocEdit.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,6 +103,49 @@
             this.groupbxLocEdit.TabStop = false;
             this.groupbxLocEdit.Text = "Edit Area";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Title";
+            // 
+            // btnSetLoc
+            // 
+            this.btnSetLoc.Location = new System.Drawing.Point(6, 211);
+            this.btnSetLoc.Name = "btnSetLoc";
+            this.btnSetLoc.Size = new System.Drawing.Size(120, 23);
+            this.btnSetLoc.TabIndex = 4;
+            this.btnSetLoc.Text = "Save Changes";
+            this.btnSetLoc.UseVisualStyleBackColor = true;
+            this.btnSetLoc.Click += new System.EventHandler(this.btnSetLoc_Click);
+            // 
+            // txtbxLocDescription
+            // 
+            this.txtbxLocDescription.Location = new System.Drawing.Point(6, 71);
+            this.txtbxLocDescription.Multiline = true;
+            this.txtbxLocDescription.Name = "txtbxLocDescription";
+            this.txtbxLocDescription.Size = new System.Drawing.Size(120, 134);
+            this.txtbxLocDescription.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Description";
+            // 
+            // txtbxLocTitle
+            // 
+            this.txtbxLocTitle.Location = new System.Drawing.Point(6, 32);
+            this.txtbxLocTitle.Name = "txtbxLocTitle";
+            this.txtbxLocTitle.Size = new System.Drawing.Size(120, 20);
+            this.txtbxLocTitle.TabIndex = 1;
+            // 
             // btnSetItem
             // 
             this.btnSetItem.Location = new System.Drawing.Point(132, 211);
@@ -137,15 +180,6 @@
             this.txtbxItemName.Size = new System.Drawing.Size(120, 20);
             this.txtbxItemName.TabIndex = 15;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Title";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -154,16 +188,6 @@
             this.label5.Size = new System.Drawing.Size(27, 13);
             this.label5.TabIndex = 14;
             this.label5.Text = "Title";
-            // 
-            // combxItems
-            // 
-            this.combxItems.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combxItems.FormattingEnabled = true;
-            this.combxItems.Location = new System.Drawing.Point(132, 31);
-            this.combxItems.Name = "combxItems";
-            this.combxItems.Size = new System.Drawing.Size(123, 21);
-            this.combxItems.TabIndex = 13;
-            this.combxItems.SelectedIndexChanged += new System.EventHandler(this.combxItems_SelectedIndexChanged);
             // 
             // addKey
             // 
@@ -204,39 +228,15 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Items";
             // 
-            // btnSetLoc
+            // combxItems
             // 
-            this.btnSetLoc.Location = new System.Drawing.Point(6, 211);
-            this.btnSetLoc.Name = "btnSetLoc";
-            this.btnSetLoc.Size = new System.Drawing.Size(120, 23);
-            this.btnSetLoc.TabIndex = 4;
-            this.btnSetLoc.Text = "Save Changes";
-            this.btnSetLoc.UseVisualStyleBackColor = true;
-            this.btnSetLoc.Click += new System.EventHandler(this.btnSetLoc_Click);
-            // 
-            // txtbxLocDescription
-            // 
-            this.txtbxLocDescription.Location = new System.Drawing.Point(6, 71);
-            this.txtbxLocDescription.Multiline = true;
-            this.txtbxLocDescription.Name = "txtbxLocDescription";
-            this.txtbxLocDescription.Size = new System.Drawing.Size(120, 134);
-            this.txtbxLocDescription.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Description";
-            // 
-            // txtbxLocTitle
-            // 
-            this.txtbxLocTitle.Location = new System.Drawing.Point(6, 32);
-            this.txtbxLocTitle.Name = "txtbxLocTitle";
-            this.txtbxLocTitle.Size = new System.Drawing.Size(120, 20);
-            this.txtbxLocTitle.TabIndex = 1;
+            this.combxItems.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combxItems.FormattingEnabled = true;
+            this.combxItems.Location = new System.Drawing.Point(132, 31);
+            this.combxItems.Name = "combxItems";
+            this.combxItems.Size = new System.Drawing.Size(123, 21);
+            this.combxItems.TabIndex = 13;
+            this.combxItems.SelectedIndexChanged += new System.EventHandler(this.combxItems_SelectedIndexChanged);
             // 
             // LocationEditor
             // 
@@ -267,15 +267,15 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtbxLocTitle;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button removeItem;
-        private System.Windows.Forms.Button addItem;
-        private System.Windows.Forms.Button addKey;
-        private System.Windows.Forms.ComboBox combxItems;
+        private System.Windows.Forms.Button btnSetItem;
+        private System.Windows.Forms.TextBox txtbxItemDescription;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtbxItemName;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtbxItemDescription;
-        private System.Windows.Forms.Button btnSetItem;
+        private System.Windows.Forms.ComboBox combxItems;
+        private System.Windows.Forms.Button addKey;
+        private System.Windows.Forms.Button removeItem;
+        private System.Windows.Forms.Button addItem;
+        private System.Windows.Forms.Label label3;
     }
 }

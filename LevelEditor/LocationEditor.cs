@@ -19,10 +19,10 @@ namespace LevelEditor
             InitializeComponent();
         }        
 
-        public LocationEditor(ref BindingList<Location> locations)
+        public LocationEditor(ref BindingList<Location> _locations)
         {
             InitializeComponent();
-            this.locations = locations;
+            locations = _locations;
         }
 
         private void LocationEditor_Load(object sender, EventArgs e)
@@ -104,8 +104,16 @@ namespace LevelEditor
 
         private void combxItems_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtbxItemName.Text = locations[lstbxLocation.SelectedIndex].Inventory[combxItems.SelectedIndex].ItemName;
-            txtbxItemDescription.Text = locations[lstbxLocation.SelectedIndex].Inventory[combxItems.SelectedIndex].ItemDescription;
+            if (combxItems.SelectedIndex >= 0)
+            {
+                txtbxItemName.Text = locations[lstbxLocation.SelectedIndex].Inventory[combxItems.SelectedIndex].ItemName;
+                txtbxItemDescription.Text = locations[lstbxLocation.SelectedIndex].Inventory[combxItems.SelectedIndex].ItemDescription;
+            }
+            else
+            {
+                txtbxItemName.Clear();
+                txtbxItemDescription.Clear();
+            }
         }
     }
 }

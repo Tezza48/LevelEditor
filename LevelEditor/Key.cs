@@ -21,7 +21,7 @@ namespace LevelEditor
 
         public override string ToString()
         {
-            return itemName;
+            return "K: " + itemName + ((destroyedOnUse) ? ": D" : "");
         }
     }
 }

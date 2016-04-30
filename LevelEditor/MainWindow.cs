@@ -27,6 +27,7 @@ namespace LevelEditor
             gameData.startText = "Start Text";
             gameData.locations = new BindingList<Location>();
             gameData.locations.Add(new Location());
+            gameData.playerInventory = new BindingList<Item>();
 
             txtbxStartText.Text = gameData.startText;
         }
@@ -34,7 +35,7 @@ namespace LevelEditor
         private void btnEditLocations_Click(object sender, EventArgs e)
         {
             LocationEditor locEditWindow = new LocationEditor(ref gameData.locations);
-            locEditWindow.ShowDialog();
+            locEditWindow.Show();
         }
 
         private void txtbxStartText_TextChanged(object sender, EventArgs e)
@@ -65,6 +66,9 @@ namespace LevelEditor
             string data = File.ReadAllText("data.json");
 
             gameData = JsonConvert.DeserializeObject<SaveData>(data);
+
+            if (gameData.playerInventory == null)
+                gameData.playerInventory = new BindingList<Item>();
 
             txtbxStartText.Text = gameData.startText;
         }
@@ -131,6 +135,12 @@ namespace LevelEditor
                 default:
                     break;
             }
+        }
+
+        private void btnEditPlayer_Click(object sender, EventArgs e)
+        {
+            PlayerEditor playerEditor = new PlayerEditor(ref gameData.playerInventory);
+            playerEditor.Show();
         }
     }
 }

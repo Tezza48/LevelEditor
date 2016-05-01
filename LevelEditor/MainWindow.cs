@@ -137,6 +137,12 @@ namespace LevelEditor
             }
         }
 
+        private void btnEditExits_Click(object sender, EventArgs e)
+        {
+            ExitEditor exitEditor = new ExitEditor(ref gameData.locations);
+            exitEditor.Show();
+        }
+
         private void btnEditPlayer_Click(object sender, EventArgs e)
         {
             PlayerEditor playerEditor = new PlayerEditor(ref gameData.playerInventory);

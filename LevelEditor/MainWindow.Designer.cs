@@ -58,6 +58,7 @@
             this.btnEditExits.TabIndex = 2;
             this.btnEditExits.Text = "Edit Exits";
             this.btnEditExits.UseVisualStyleBackColor = true;
+            this.btnEditExits.Click += new System.EventHandler(this.btnEditExits_Click);
             // 
             // txtbxStartText
             // 

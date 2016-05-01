@@ -20,6 +20,7 @@ namespace LevelEditor
         public MainWindow()
         {
             InitializeComponent();
+            SaveBasicLevelStuff();
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -57,7 +58,10 @@ namespace LevelEditor
 
         private void SaveGameData()
         {
-            string data = JsonConvert.SerializeObject(gameData);
+            string data = JsonConvert.SerializeObject(gameData, Formatting.Indented, new JsonSerializerSettings
+            {
+                TypeNameHandling = TypeNameHandling.Auto
+            });
             File.WriteAllText("data.json", data);
         }
 
@@ -65,7 +69,10 @@ namespace LevelEditor
         {
             string data = File.ReadAllText("data.json");
 
-            gameData = JsonConvert.DeserializeObject<SaveData>(data);
+            gameData = JsonConvert.DeserializeObject<SaveData>(data, new JsonSerializerSettings
+            {
+                TypeNameHandling = TypeNameHandling.Auto
+            });
 
             if (gameData.playerInventory == null)
                 gameData.playerInventory = new BindingList<Item>();
@@ -113,12 +120,7 @@ namespace LevelEditor
             #endregion
 
             gameData.locations = locations;
-
-            string data = JsonConvert.SerializeObject(gameData, Formatting.Indented, new JsonSerializerSettings
-            {
-                NullValueHandling = NullValueHandling.Include
-            });
-            File.WriteAllText("data.json", data);
+            SaveGameData();
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)

@@ -33,6 +33,8 @@ namespace LevelEditor
                 key = value;
             }
         }
+        public int LeadsTo { get { return leadsTo; } }
+        public Directions Direction { get { return direction; } }
 
         public Exit(Directions _direction, int _leadsTo, Key _key = null)
         {

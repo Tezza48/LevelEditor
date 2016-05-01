@@ -11,9 +11,9 @@ namespace LevelEditor
     public class Item
     {
         [JsonRequired]
-        protected string itemName;
+        private string itemName;
         [JsonRequired]
-        protected string itemDescription;
+        private string itemDescription;
 
         [JsonIgnore]
         public string ItemName

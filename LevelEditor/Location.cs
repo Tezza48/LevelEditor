@@ -15,7 +15,7 @@ namespace LevelEditor
         [JsonRequired]
         private string description;
         [JsonRequired]
-        private List<Exit> exits;
+        private Exit[] exits;
         [JsonRequired]
         private BindingList<Item> inventory;
 
@@ -59,18 +59,33 @@ namespace LevelEditor
                 inventory = value;
             }
         }
+        [JsonIgnore]
+        public Exit[] Exits
+        {
+            get
+            {
+                return exits;
+            }
+        }
 
         public Location(string _title = "New Location", string _description = "")
         {
             title = _title;
             description = _description;
-            exits = new List<Exit>();
+            exits = new Exit[(int)Exit.Directions.Out + 1];
             inventory = new BindingList<Item>();
         }
 
-        public void addExit(Exit exit)
+        public bool addExit(Exit exit)
         {
-            exits.Add(exit);
+            bool isValid = !(exits[(int)exit.Direction] == exit);
+            if (isValid)
+            {
+                exits[(int)exit.Direction] = exit;
+                return true;
+            }
+            else
+                return false;
         }
 
         public void addItem(Item newItem)

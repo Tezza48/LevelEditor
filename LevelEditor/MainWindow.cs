@@ -20,7 +20,7 @@ namespace LevelEditor
         public MainWindow()
         {
             InitializeComponent();
-            SaveBasicLevelStuff();
+            //SaveBasicLevelStuff();
         }
 
         private void MainWindow_Load(object sender, EventArgs e)

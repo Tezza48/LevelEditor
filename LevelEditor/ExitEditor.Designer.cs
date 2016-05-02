@@ -84,6 +84,7 @@
             // 
             // combobxKey
             // 
+            this.combobxKey.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combobxKey.FormattingEnabled = true;
             this.combobxKey.Location = new System.Drawing.Point(7, 48);
             this.combobxKey.Name = "combobxKey";
@@ -92,6 +93,7 @@
             // 
             // combobxKeyLoc
             // 
+            this.combobxKeyLoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combobxKeyLoc.FormattingEnabled = true;
             this.combobxKeyLoc.Location = new System.Drawing.Point(7, 20);
             this.combobxKeyLoc.Name = "combobxKeyLoc";

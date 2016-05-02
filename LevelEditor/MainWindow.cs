@@ -20,11 +20,11 @@ namespace LevelEditor
         public MainWindow()
         {
             InitializeComponent();
-            //SaveBasicLevelStuff();
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
+            // default valuse to use before the user loads their saved story (or for a new story)
             gameData.startText = "Start Text";
             gameData.locations = new BindingList<Location>();
             gameData.locations.Add(new Location());
@@ -35,12 +35,14 @@ namespace LevelEditor
 
         private void btnEditLocations_Click(object sender, EventArgs e)
         {
+            // launch the location editor window
             LocationEditor locEditWindow = new LocationEditor(ref gameData.locations);
             locEditWindow.Show();
         }
 
         private void txtbxStartText_TextChanged(object sender, EventArgs e)
         {
+            // this textbox automatically updates the gamedata when you change it
             gameData.startText = txtbxStartText.Text;
         }
 
@@ -60,14 +62,15 @@ namespace LevelEditor
         {
             string data = JsonConvert.SerializeObject(gameData, Formatting.Indented, new JsonSerializerSettings
             {
-                TypeNameHandling = TypeNameHandling.Auto
+                TypeNameHandling = TypeNameHandling.Auto// automatically save the type  of the object if it's different to the list's type (for keys)
             });
             File.WriteAllText("data.json", data);
         }
 
         private void LoadGameData()
         {
-            try
+            // load the data file
+            try// the file might not exist yes to i use a try here
             {
                 string data = File.ReadAllText("data.json");
 
@@ -86,6 +89,8 @@ namespace LevelEditor
 
         private void SaveBasicLevelStuff()
         {
+            // this was how i designed the new story data structure and gave me things i coud edit
+            // without having to have made the editor yet. saved a lot of headaches
             gameData.startText = "This is the game's start text.";
 
             BindingList<Location> locations = new BindingList<Location>();
@@ -129,6 +134,7 @@ namespace LevelEditor
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // prompt the user to save before quitting
             DialogResult quitWarningMessage = MessageBox.Show("Do you want to Save first?", "Warning", MessageBoxButtons.YesNoCancel);
             switch (quitWarningMessage)
             {
@@ -145,12 +151,14 @@ namespace LevelEditor
 
         private void btnEditExits_Click(object sender, EventArgs e)
         {
+            // open the exit editor
             ExitEditor exitEditor = new ExitEditor(ref gameData.locations);
             exitEditor.Show();
         }
 
         private void btnEditPlayer_Click(object sender, EventArgs e)
         {
+            // open the player editor
             PlayerEditor playerEditor = new PlayerEditor(ref gameData.playerInventory);
             playerEditor.Show();
         }

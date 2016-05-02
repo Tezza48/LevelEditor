@@ -72,15 +72,19 @@ namespace LevelEditor
         {
             title = _title;
             description = _description;
+            // array with each item being an assignable exit
+            // (no longer a list to aviod user adding multiple exits with the same direction.)
             exits = new Exit[(int)Exit.Directions.Out + 1];
             inventory = new BindingList<Item>();
         }
 
         public bool addExit(Exit exit)
         {
+            // has this location already got an exit going tht way
             bool isValid = !(exits[(int)exit.Direction] == exit);
             if (isValid)
             {
+                // set that exit
                 exits[(int)exit.Direction] = exit;
                 return true;
             }

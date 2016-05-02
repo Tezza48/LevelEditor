@@ -3,7 +3,7 @@
   "locations": [
     {
       "title": "The Club",
-      "description": "",
+      "description": "You're in a club playing some thumping tunes, but you cant hear them cos they're too loud.",
       "exits": [
         null,
         null,
@@ -29,7 +29,7 @@
     },
     {
       "title": "Backalley",
-      "description": "",
+      "description": "A dark alley behind the club.",
       "exits": [
         null,
         {
@@ -48,20 +48,14 @@
         null,
         null,
         null,
-        {
-          "leadsTo": 0,
-          "direction": 11,
-          "Key": null,
-          "LeadsTo": 0,
-          "Direction": 11
-        },
+        null,
         null
       ],
       "inventory": []
     },
     {
       "title": "Dark Stairwell",
-      "description": "",
+      "description": "You can barely make out the staircase, it looks like it goes up to the next storey and down to a basement.",
       "exits": [
         null,
         null,
@@ -75,13 +69,7 @@
           "LeadsTo": 4,
           "Direction": 5
         },
-        {
-          "leadsTo": 3,
-          "direction": 6,
-          "Key": null,
-          "LeadsTo": 3,
-          "Direction": 6
-        },
+        null,
         null,
         null,
         null,
@@ -93,20 +81,14 @@
     },
     {
       "title": "Eery Basement",
-      "description": "",
+      "description": "It's really dark down here",
       "exits": [
         null,
         null,
         null,
         null,
         null,
-        {
-          "leadsTo": 2,
-          "direction": 5,
-          "Key": null,
-          "LeadsTo": 2,
-          "Direction": 5
-        },
+        null,
         null,
         null,
         null,
@@ -115,20 +97,11 @@
         null,
         null
       ],
-      "inventory": [
-        {
-          "$type": "LevelEditor.Key, LevelEditor",
-          "keyName": "ID Card",
-          "keyDescription": "",
-          "destroyedOnUse": true,
-          "itemName": "New Item",
-          "itemDescription": ""
-        }
-      ]
+      "inventory": []
     },
     {
       "title": "Top floor",
-      "description": "",
+      "description": "Looks like sone sort of lab, there's a blue light coming from a monitor next to what looks like a car.",
       "exits": [
         null,
         null,
@@ -136,13 +109,7 @@
         null,
         null,
         null,
-        {
-          "leadsTo": 2,
-          "direction": 6,
-          "Key": null,
-          "LeadsTo": 2,
-          "Direction": 6
-        },
+        null,
         null,
         null,
         null,
@@ -150,13 +117,7 @@
         {
           "leadsTo": 5,
           "direction": 11,
-          "Key": {
-            "keyName": "ID Card",
-            "keyDescription": "",
-            "destroyedOnUse": true,
-            "itemName": "New Item",
-            "itemDescription": ""
-          },
+          "Key": null,
           "LeadsTo": 5,
           "Direction": 11
         },
@@ -166,7 +127,7 @@
     },
     {
       "title": "Simulator",
-      "description": "",
+      "description": "You cant get out!",
       "exits": [
         null,
         null,
@@ -179,13 +140,7 @@
         null,
         null,
         null,
-        {
-          "leadsTo": 5,
-          "direction": 11,
-          "Key": null,
-          "LeadsTo": 5,
-          "Direction": 11
-        },
+        null,
         null
       ],
       "inventory": []

@@ -27,11 +27,15 @@ namespace LevelEditor
 
         private void PlayerEditor_Load(object sender, EventArgs e)
         {
+            // set the data source for the inventory combobox
+            // items here cant be used as keys (cant be selected when setting exits)
+            // deter user from using this program to cheat items into their inventory.
             combxItems.DataSource = inventory;
         }
 
         private void combxItems_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // fill the textboxes with theit relevent data
             if (combxItems.SelectedIndex >= 0)
             {
                 txtbxItemName.Text = inventory[combxItems.SelectedIndex].ItemName;
@@ -46,21 +50,25 @@ namespace LevelEditor
 
         private void addItem_Click(object sender, EventArgs e)
         {
+            // add a new item
             inventory.Add(new Item());
         }
 
         private void addKey_Click(object sender, EventArgs e)
         {
+            // add a new key
             inventory.Add(new Key());
         }
 
         private void removeItem_Click(object sender, EventArgs e)
         {
+            //remove the selected item or key
             inventory.RemoveAt(combxItems.SelectedIndex);
         }
 
-        private void btnSetLoc_Click(object sender, EventArgs e)
+        private void btnSetItem_Click(object sender, EventArgs e)
         {
+            // replace the selected item / key with a new one using the new values
             int i = combxItems.SelectedIndex;
             if (inventory[i].GetType() == typeof(Key))
             {

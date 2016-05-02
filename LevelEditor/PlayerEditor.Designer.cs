@@ -130,7 +130,7 @@
             this.btnSetLoc.TabIndex = 18;
             this.btnSetLoc.Text = "Save Changes";
             this.btnSetLoc.UseVisualStyleBackColor = true;
-            this.btnSetLoc.Click += new System.EventHandler(this.btnSetLoc_Click);
+            this.btnSetLoc.Click += new System.EventHandler(this.btnSetItem_Click);
             // 
             // PlayerEditor
             // 

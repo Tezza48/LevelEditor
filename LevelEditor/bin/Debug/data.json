@@ -1,0 +1,180 @@
+{
+  "startText": "Scifi Matrixy story",
+  "locations": [
+    {
+      "title": "The Club",
+      "description": "",
+      "exits": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "leadsTo": 1,
+          "direction": 12,
+          "Key": null,
+          "LeadsTo": 1,
+          "Direction": 12
+        }
+      ],
+      "inventory": []
+    },
+    {
+      "title": "Backalley",
+      "description": "",
+      "exits": [
+        null,
+        {
+          "leadsTo": 2,
+          "direction": 1,
+          "Key": null,
+          "LeadsTo": 2,
+          "Direction": 1
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "leadsTo": 0,
+          "direction": 11,
+          "Key": null,
+          "LeadsTo": 0,
+          "Direction": 11
+        },
+        null
+      ],
+      "inventory": []
+    },
+    {
+      "title": "Dark Stairwell",
+      "description": "",
+      "exits": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "leadsTo": 4,
+          "direction": 5,
+          "Key": null,
+          "LeadsTo": 4,
+          "Direction": 5
+        },
+        {
+          "leadsTo": 3,
+          "direction": 6,
+          "Key": null,
+          "LeadsTo": 3,
+          "Direction": 6
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "inventory": []
+    },
+    {
+      "title": "Eery Basement",
+      "description": "",
+      "exits": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "leadsTo": 2,
+          "direction": 5,
+          "Key": null,
+          "LeadsTo": 2,
+          "Direction": 5
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "inventory": []
+    },
+    {
+      "title": "Top floor",
+      "description": "",
+      "exits": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "leadsTo": 2,
+          "direction": 6,
+          "Key": null,
+          "LeadsTo": 2,
+          "Direction": 6
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "leadsTo": 5,
+          "direction": 11,
+          "Key": null,
+          "LeadsTo": 5,
+          "Direction": 11
+        },
+        null
+      ],
+      "inventory": []
+    },
+    {
+      "title": "Simulator",
+      "description": "",
+      "exits": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "leadsTo": 5,
+          "direction": 11,
+          "Key": null,
+          "LeadsTo": 5,
+          "Direction": 11
+        },
+        null
+      ],
+      "inventory": []
+    }
+  ],
+  "playerInventory": []
+}

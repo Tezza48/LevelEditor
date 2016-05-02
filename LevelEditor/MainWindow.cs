@@ -67,17 +67,21 @@ namespace LevelEditor
 
         private void LoadGameData()
         {
-            string data = File.ReadAllText("data.json");
-
-            gameData = JsonConvert.DeserializeObject<SaveData>(data, new JsonSerializerSettings
+            try
             {
-                TypeNameHandling = TypeNameHandling.Auto
-            });
+                string data = File.ReadAllText("data.json");
 
-            if (gameData.playerInventory == null)
-                gameData.playerInventory = new BindingList<Item>();
+                gameData = JsonConvert.DeserializeObject<SaveData>(data);
 
-            txtbxStartText.Text = gameData.startText;
+                if (gameData.playerInventory == null)
+                    gameData.playerInventory = new BindingList<Item>();
+
+                txtbxStartText.Text = gameData.startText;
+            }
+            catch
+            {
+                MessageBox.Show("You need to save a story before you can load one.\n(there needs to be a file called \"data.json\" in the root dir.");
+            }
         }
 
         private void SaveBasicLevelStuff()

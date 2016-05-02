@@ -115,7 +115,16 @@
         null,
         null
       ],
-      "inventory": []
+      "inventory": [
+        {
+          "$type": "LevelEditor.Key, LevelEditor",
+          "keyName": "ID Card",
+          "keyDescription": "",
+          "destroyedOnUse": true,
+          "itemName": "New Item",
+          "itemDescription": ""
+        }
+      ]
     },
     {
       "title": "Top floor",
@@ -141,7 +150,13 @@
         {
           "leadsTo": 5,
           "direction": 11,
-          "Key": null,
+          "Key": {
+            "keyName": "ID Card",
+            "keyDescription": "",
+            "destroyedOnUse": true,
+            "itemName": "New Item",
+            "itemDescription": ""
+          },
           "LeadsTo": 5,
           "Direction": 11
         },

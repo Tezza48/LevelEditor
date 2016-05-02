@@ -20,7 +20,6 @@ namespace LevelEditor
         public MainWindow()
         {
             InitializeComponent();
-            //SaveBasicLevelStuff();
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -58,26 +57,27 @@ namespace LevelEditor
 
         private void SaveGameData()
         {
-            string data = JsonConvert.SerializeObject(gameData, Formatting.Indented, new JsonSerializerSettings
-            {
-                TypeNameHandling = TypeNameHandling.Auto
-            });
+            string data = JsonConvert.SerializeObject(gameData);
             File.WriteAllText("data.json", data);
         }
 
         private void LoadGameData()
         {
-            string data = File.ReadAllText("data.json");
-
-            gameData = JsonConvert.DeserializeObject<SaveData>(data, new JsonSerializerSettings
+            try
             {
-                TypeNameHandling = TypeNameHandling.Auto
-            });
+                string data = File.ReadAllText("data.json");
 
-            if (gameData.playerInventory == null)
-                gameData.playerInventory = new BindingList<Item>();
+                gameData = JsonConvert.DeserializeObject<SaveData>(data);
 
-            txtbxStartText.Text = gameData.startText;
+                if (gameData.playerInventory == null)
+                    gameData.playerInventory = new BindingList<Item>();
+
+                txtbxStartText.Text = gameData.startText;
+            }
+            catch
+            {
+                MessageBox.Show("You need to save a story before you can load one.\n(there needs to be a file called \"data.json\" in the root dir.");
+            }
         }
 
         private void SaveBasicLevelStuff()
@@ -120,7 +120,12 @@ namespace LevelEditor
             #endregion
 
             gameData.locations = locations;
-            SaveGameData();
+
+            string data = JsonConvert.SerializeObject(gameData, Formatting.Indented, new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Include
+            });
+            File.WriteAllText("data.json", data);
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
@@ -137,12 +142,6 @@ namespace LevelEditor
                 default:
                     break;
             }
-        }
-
-        private void btnEditExits_Click(object sender, EventArgs e)
-        {
-            ExitEditor exitEditor = new ExitEditor(ref gameData.locations);
-            exitEditor.Show();
         }
 
         private void btnEditPlayer_Click(object sender, EventArgs e)
